@@ -1,0 +1,26 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="450"
+        x:Class="MyApp.MainWindow"
+        Title="MyApp">
+    <StackPanel>
+      <!-- title bar -->
+      <Grid Height="40" Background="Orange" ColumnDefinitions="Auto, Auto, *, Auto, Auto">
+        <Rectangle Grid.Column="0" Fill="Red" Width="40"></Rectangle>
+        <Rectangle Grid.Column="1" Fill="Blue" Width="40"></Rectangle>
+        <Label Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">Название </Label>
+        <Rectangle Grid.Column="3" Fill="Green" Width="40"></Rectangle>
+        <Rectangle Grid.Column="4" Fill="Chocolate" Width="40"></Rectangle>
+      </Grid>
+      <!-- main area -->
+      <Grid>
+        
+      </Grid>
+      <!-- bottom bar -->
+      <Grid>
+        
+      </Grid>
+    </StackPanel>
+</Window>
