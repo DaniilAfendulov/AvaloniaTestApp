@@ -8,7 +8,7 @@
   
     <Grid RowDefinitions="Auto,*,Auto">
       <!-- title bar -->
-      <Grid Grid.Row="0" Height="40" Background="Orange" ColumnDefinitions="Auto, Auto, *, Auto, Auto">
+      <Grid Grid.Row="0" Height="40" Background="#e5e5e5" ColumnDefinitions="Auto, Auto, *, Auto, Auto">
         <Rectangle Grid.Column="0" Fill="Red" Width="40"></Rectangle>
         <Rectangle Grid.Column="1" Fill="Blue" Width="40"></Rectangle>
         <Label Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">Loudness meter</Label>
