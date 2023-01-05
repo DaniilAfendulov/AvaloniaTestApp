@@ -3,6 +3,7 @@
              x:Class="MyApp.App">
     <Application.Styles>
         <FluentTheme Mode="Light"/>
+      <StyleInclude Source="/LargeLabelControl.axaml"></StyleInclude>
     </Application.Styles>
 
   <Application.Resources>

@@ -2,13 +2,28 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:controls="clr-namespace:MyApp"
+        mc:Ignorable="d" d:DesignWidth="1048" d:DesignHeight="645"
         x:Class="MyApp.MainWindow"
         Title="MyApp">
+
+  <Window.Styles>
+    <Style Selector="Button.small">
+      <Setter Property="FontSize" Value="12"></Setter>
+      <Setter Property="Foreground" Value="White"></Setter>
+      <Setter Property="Background" Value="{DynamicResource BrightBlueBrush}"></Setter>
+      <Setter Property="CornerRadius" Value="20"></Setter>
+      <Setter Property="Padding" Value="7,2"></Setter>
+    </Style>
+    <Style Selector="Button:pointerover /template/ ContentPresenter">
+      <Setter Property="Background" Value="{DynamicResource BrightBlueHoverBrush}"></Setter>
+      <Setter Property="TextBlock.Foreground"  Value="Red"></Setter>
+    </Style>
+  </Window.Styles>
   
     <Grid RowDefinitions="Auto,*,Auto">
       <!-- title bar -->
-      <Grid Grid.Row="0" Height="40" Background="#e5e5e5" ColumnDefinitions="Auto, Auto, *, Auto, Auto">
+      <Grid Grid.Row="0" Height="40" Background="{DynamicResource ResourceKey=MidGrayBrush}" ColumnDefinitions="Auto, Auto, *, Auto, Auto">
         <Grid.Styles>
           <Style Selector="Button" >
             <Setter Property="Background" Value="Transparent"></Setter>
@@ -114,28 +129,36 @@
           </Grid>
           <Label Grid.Row="1" Foreground="White" FontSize="20" HorizontalAlignment="Center" Margin="0,10">LUFS</Label>
           <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <StackPanel.Styles>
-              <Style Selector="Button">
-                <Setter Property="FontSize" Value="12"></Setter>
-                <Setter Property="Foreground" Value="White"></Setter>
-                <Setter Property="Background" Value="#7f98c7"></Setter>
-                <Setter Property="CornerRadius" Value="20"></Setter>
-                <Setter Property="Padding" Value="7,2"></Setter>
-              </Style>
-              <Style Selector="Button:pointerover /template/ ContentPresenter">
-                <Setter Property="Background" Value="#98acd0"></Setter>
-               <Setter Property="TextBlock.Foreground"  Value="Red"></Setter>
-              </Style>
-            </StackPanel.Styles>
-            <Button CornerRadius="20" Width="30" Height="30" Margin="0,0,20,0">
+            
+            <Button Classes="small" CornerRadius="20" Width="30" Height="30" Margin="0,0,20,0">
               <Image Source="avares://MyApp/Assets/Images/DoubleArrow.png"></Image>
             </Button>
-            <Button>INT-LRA</Button>
+            <Button Classes="small">INT-LRA</Button>
           </StackPanel>
         </Grid>
         
         <!-- Details panel -->
-        <Rectangle Grid.Column="1" Fill="SkyBlue" Width="100"></Rectangle>
+        <StackPanel Grid.Column="1" Width="170">
+          <controls:LargeLabelControl LargeText="-21.2 LUFS" SmallText="SHORT TERM"></controls:LargeLabelControl>
+          <controls:LargeLabelControl LargeText="-20.7 LUFS" SmallText="INTEGRATED"
+                                      Background="{DynamicResource LightBlueBrush}"></controls:LargeLabelControl>
+          <controls:LargeLabelControl LargeText="9.5 LUFS" SmallText="LOUDNESS RANGE"></controls:LargeLabelControl>
+          <controls:LargeLabelControl LargeText="11.5 LUFS" SmallText="REALTIME DYNAMICS"></controls:LargeLabelControl>
+          <controls:LargeLabelControl LargeText="20.5 LUFS" SmallText="AVG. DYNAMIC (PLR)"
+                                      Margin="0,0,0,5"></controls:LargeLabelControl>
+
+          <controls:LargeLabelControl Classes="button" LargeText="-9.8 LUFS" SmallText="MOMENTARY MAX"></controls:LargeLabelControl>
+          <controls:LargeLabelControl Classes="button" LargeText="-15.1 LUFS" SmallText="SHORT TERM MAX"></controls:LargeLabelControl>
+          <controls:LargeLabelControl LargeText="0.7 dB" SmallText="TRUE PEAK MAX"
+                                      Margin="0,0,0,5" Classes="button"></controls:LargeLabelControl>
+
+
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Classes="small" Margin="0,0,20,0">AUTO</Button>
+            <Button Classes="small" FontSize="20" FontFamily="Arial" Background="{DynamicResource FadedRedBrush}" Margin="0,0,20,0">X</Button>
+
+          </StackPanel>
+        </StackPanel>
         
         <!-- Graph -->
         <Rectangle Grid.Column="2" Fill="NavajoWhite"></Rectangle>
